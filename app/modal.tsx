@@ -9,7 +9,7 @@ export default function BudgetCategoryModal() {
 
   const handleNavigateToEdit = () => {
     router.dismiss();
-    router.push("/(drawer)/edit");
+    router.push("/(drawer)/(tabs)/edit");
   };
 
   const handleNavigateToBudget = () => {

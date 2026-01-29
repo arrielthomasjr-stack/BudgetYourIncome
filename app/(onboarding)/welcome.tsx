@@ -5,6 +5,14 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 export default function WelcomeScreen() {
   const router = useRouter();
 
+  const handleCreateAccount = () => {
+    router.push("/(onboarding)/create-account");
+  };
+
+  const handleLogin = () => {
+    router.push("/(onboarding)/create-account");
+  };
+
   const handleGetStarted = () => {
     router.push("/(onboarding)/income");
   };
@@ -25,6 +33,16 @@ export default function WelcomeScreen() {
           you go.
         </Text>
       </View>
+
+      {/* CTA */}
+      <Pressable style={styles.button} onPress={handleCreateAccount}>
+        <Text style={styles.buttonText}>Create Account</Text>
+      </Pressable>
+
+      {/* CTA */}
+      <Pressable style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
+      </Pressable>
 
       {/* CTA */}
       <Pressable style={styles.button} onPress={handleGetStarted}>
