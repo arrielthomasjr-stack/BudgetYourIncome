@@ -3,6 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { Platform } from "react-native";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,15 +22,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize analytics only when supported (guard for React Native / non-web)
+// Initialize analytics only on web (not available in React Native)
 let analytics: ReturnType<typeof getAnalytics> | null = null;
-try {
-  if (typeof window !== "undefined") {
+if (Platform.OS === "web") {
+  try {
     analytics = getAnalytics(app);
+  } catch (e) {
+    analytics = null;
   }
-} catch (e) {
-  // Analytics not available in this environment (e.g. React Native)
-  analytics = null;
 }
 
 // export commonly used services
