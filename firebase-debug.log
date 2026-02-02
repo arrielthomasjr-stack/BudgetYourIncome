@@ -1,0 +1,14 @@
+[debug] [2026-02-02T18:53:27.054Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-02T18:53:27.055Z] > authorizing via signed-in user (leddconsulting@gmail.com)
+[debug] [2026-02-02T18:53:27.055Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-02T18:53:27.055Z] > authorizing via signed-in user (leddconsulting@gmail.com)
+[debug] [2026-02-02T18:53:27.065Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-02T18:53:27.065Z] > authorizing via signed-in user (leddconsulting@gmail.com)
+[debug] [2026-02-02T18:53:27.074Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-02T18:53:27.074Z] > authorizing via signed-in user (leddconsulting@gmail.com)
+[debug] [2026-02-02T18:53:27.075Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-02T18:53:27.075Z] > authorizing via signed-in user (leddconsulting@gmail.com)
+[debug] [2026-02-02T18:53:27.075Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-02T18:53:27.076Z] > authorizing via signed-in user (leddconsulting@gmail.com)
+[debug] [2026-02-02T18:53:27.076Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-02T18:53:27.076Z] > authorizing via signed-in user (leddconsulting@gmail.com)
