@@ -27,11 +27,13 @@ export interface Budget {
 export interface BudgetState {
   budgets: Budget[];
   currentBudget: Budget | null;
+  monthlyIncome: number | null;
   strategy: BudgetStrategy | null;
   isLoading: boolean;
   error: string | null;
 
   // Actions
+  setIncome: (income: number) => void;
   setBudgets: (budgets: Budget[]) => void;
   setCurrentBudget: (budget: Budget | null) => void;
   addBudget: (budget: Budget) => void;
@@ -56,9 +58,12 @@ export const useBudgetStore = create<BudgetState>()(
     (set) => ({
       budgets: [],
       currentBudget: null,
+      monthlyIncome: null,
       strategy: null,
       isLoading: false,
       error: null,
+
+      setIncome: (income) => set({ monthlyIncome: income }),
 
       setBudgets: (budgets) => set({ budgets }),
 
@@ -176,7 +181,7 @@ export const useBudgetStore = create<BudgetState>()(
       setError: (error) => set({ error }),
 
       clearBudgets: () =>
-        set({ budgets: [], currentBudget: null, error: null }),
+        set({ budgets: [], currentBudget: null, monthlyIncome: null, error: null }),
     }),
     {
       name: "budget-store",
