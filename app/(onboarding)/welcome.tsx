@@ -10,7 +10,7 @@ export default function WelcomeScreen() {
   };
 
   const handleLogin = () => {
-    router.push("/(onboarding)/create-account");
+    router.push("/(onboarding)/login");
   };
 
   const handleGetStarted = () => {

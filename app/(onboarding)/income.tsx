@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -9,6 +10,7 @@ import {
     TextInput,
     View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useBudgetStore } from "@/src/store/budget-store";
 
@@ -35,42 +37,56 @@ export default function IncomeScreen() {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
-    >
-      <View>
-        <Text style={styles.title}>Monthly Income</Text>
-        <Text style={styles.subtitle}>
-          Enter your average monthly income before taxes.
-        </Text>
-
-        <TextInput
-          style={styles.input}
-          placeholder="e.g. 5000"
-          keyboardType="numeric"
-          value={incomeInput}
-          onChangeText={setIncomeInput}
-          autoFocus
-        />
-      </View>
-
-      <Pressable
-        style={[styles.button, !isValid && styles.buttonDisabled]}
-        onPress={handleContinue}
-        disabled={!isValid}
-      >
-        <Text style={styles.buttonText}>Continue</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <Pressable style={styles.backButton} onPress={() => router.back()}>
+        <Ionicons name="arrow-back" size={24} color="#333" />
       </Pressable>
-    </KeyboardAvoidingView>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+      >
+        <View>
+          <Text style={styles.title}>Monthly Income</Text>
+          <Text style={styles.subtitle}>
+            Enter your average monthly income before taxes.
+          </Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="e.g. 5000"
+            keyboardType="numeric"
+            value={incomeInput}
+            onChangeText={setIncomeInput}
+            autoFocus
+          />
+        </View>
+
+        <Pressable
+          style={[styles.button, !isValid && styles.buttonDisabled]}
+          onPress={handleContinue}
+          disabled={!isValid}
+        >
+          <Text style={styles.buttonText}>Continue</Text>
+        </Pressable>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+  },
+  backButton: {
+    marginLeft: 16,
+    marginTop: 8,
+    padding: 8,
+    alignSelf: "flex-start",
+  },
   container: {
     flex: 1,
     padding: 24,
     justifyContent: "space-between",
-    backgroundColor: "#ffffff",
   },
   title: {
     fontSize: 24,

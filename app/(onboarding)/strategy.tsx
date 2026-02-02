@@ -1,6 +1,8 @@
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { BudgetStrategy, useBudgetStore } from "@/src/store/budget-store";
 
@@ -37,38 +39,52 @@ export default function StrategyScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.title}>Choose a Budget Strategy</Text>
-        <Text style={styles.subtitle}>
-          Pick the method that best fits your lifestyle.
-        </Text>
-
-        {strategies.map((item) => (
-          <Pressable
-            key={item.key}
-            style={[styles.card, strategy === item.key && styles.cardSelected]}
-            onPress={() => setStrategy(item.key)}
-          >
-            <Text style={styles.cardTitle}>{item.title}</Text>
-            <Text style={styles.cardDescription}>{item.description}</Text>
-          </Pressable>
-        ))}
-      </View>
-
-      <Pressable style={styles.button} onPress={handleContinue}>
-        <Text style={styles.buttonText}>Finish Setup</Text>
+    <SafeAreaView style={styles.safeArea}>
+      <Pressable style={styles.backButton} onPress={() => router.back()}>
+        <Ionicons name="arrow-back" size={24} color="#333" />
       </Pressable>
-    </View>
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.title}>Choose a Budget Strategy</Text>
+          <Text style={styles.subtitle}>
+            Pick the method that best fits your lifestyle.
+          </Text>
+
+          {strategies.map((item) => (
+            <Pressable
+              key={item.key}
+              style={[styles.card, strategy === item.key && styles.cardSelected]}
+              onPress={() => setStrategy(item.key)}
+            >
+              <Text style={styles.cardTitle}>{item.title}</Text>
+              <Text style={styles.cardDescription}>{item.description}</Text>
+            </Pressable>
+          ))}
+        </View>
+
+        <Pressable style={styles.button} onPress={handleContinue}>
+          <Text style={styles.buttonText}>Finish Setup</Text>
+        </Pressable>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#ffffff",
+  },
+  backButton: {
+    marginLeft: 16,
+    marginTop: 8,
+    padding: 8,
+    alignSelf: "flex-start",
+  },
   container: {
     flex: 1,
     padding: 24,
     justifyContent: "space-between",
-    backgroundColor: "#ffffff",
   },
   title: {
     fontSize: 24,

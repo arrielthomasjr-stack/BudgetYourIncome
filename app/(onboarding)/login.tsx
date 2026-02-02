@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import { signInWithEmail } from "@/src/features/auth/auth";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -10,6 +11,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -35,7 +37,10 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <Pressable style={styles.backButton} onPress={() => router.back()}>
+        <Ionicons name="arrow-back" size={24} color="#333" />
+      </Pressable>
       <Text style={styles.title}>Sign in</Text>
 
       <TextInput
@@ -62,7 +67,7 @@ export default function LoginScreen() {
           <Text style={styles.buttonText}>Sign In</Text>
         )}
       </Pressable>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -70,8 +75,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    justifyContent: "center",
     backgroundColor: "#fff",
+  },
+  backButton: {
+    marginBottom: 20,
+    padding: 8,
+    alignSelf: "flex-start",
   },
   title: {
     fontSize: 24,
