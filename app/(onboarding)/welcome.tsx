@@ -85,21 +85,21 @@ const styles = StyleSheet.create({
     color: "#ffffff",
   },
   content: {
-    marginBottom: 82,
+    marginBottom: 80,
     alignItems: "center",
     justifyContent: "center",
   },
   description: {
     fontSize: 20,
     color: "#ffffff",
-    lineHeight: 22,
+    lineHeight: 32,
   },
   button: {
     backgroundColor: "#2563eb",
     paddingVertical: 16,
     borderRadius: 10,
     alignItems: "center",
-    marginBottom: 52,
+    marginBottom: 42,
   },
   buttonText: {
     color: "#ffffff",
