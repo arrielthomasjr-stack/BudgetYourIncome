@@ -1,6 +1,7 @@
 import { signUpWithEmail } from "@/src/features/auth/auth";
 import { useThemeColor } from "@/src/shared/hooks/use-theme-color";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -9,7 +10,7 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  TextInput
+  TextInput,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -38,50 +39,57 @@ export default function CreateAccount() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Pressable style={styles.backButton} onPress={() => router.back()}>
-        <Ionicons name="arrow-back" size={24} color="#333" />
-      </Pressable>
-      <Text style={[styles.title, { color: useThemeColor({}, "brandGreen") }]}>
-        Create an account
-      </Text>
+    <LinearGradient
+      colors={["#6B11D8", "#3A006E", "#050205"]}
+      style={styles.container}
+    >
+      <SafeAreaView style={styles.Viewcontainer}>
+        <Pressable style={styles.backButton} onPress={() => router.back()}>
+          <Ionicons name="arrow-back" size={24} color="#333" />
+        </Pressable>
+        <Text
+          style={[styles.title, { color: useThemeColor({}, "brandGreen") }]}
+        >
+          Create an account
+        </Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Full name (optional)"
-        value={displayName}
-        onChangeText={setDisplayName}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Display Name"
+          value={displayName}
+          onChangeText={setDisplayName}
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
 
-      <Pressable
-        style={styles.button}
-        onPress={handleSubmit}
-        disabled={loading}
-      >
-        {loading ? (
-          <ActivityIndicator color="#fff" />
-        ) : (
-          <Text style={styles.buttonText}>Create Account</Text>
-        )}
-      </Pressable>
-    </SafeAreaView>
+        <Pressable
+          style={styles.button}
+          onPress={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? (
+            <ActivityIndicator color="#fff" />
+          ) : (
+            <Text style={styles.buttonText}>Create Account</Text>
+          )}
+        </Pressable>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
@@ -90,6 +98,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     backgroundColor: "#fff",
+  },
+  Viewcontainer: {
+    flex: 1,
   },
   backButton: {
     marginBottom: 20,
@@ -107,6 +118,8 @@ const styles = StyleSheet.create({
     borderColor: "#ddd",
     padding: 12,
     borderRadius: 8,
+    backgroundColor: "#fff",
+    textAlign: "center",
     marginBottom: 12,
   },
   button: {
