@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 20,
     color: "#ffffff",
   },
   content: {
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   description: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#ffffff",
     lineHeight: 22,
   },
