@@ -1,15 +1,15 @@
-import { Ionicons } from "@expo/vector-icons";
 import { signUpWithEmail } from "@/src/features/auth/auth";
+import { useThemeColor } from "@/src/shared/hooks/use-theme-color";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-    ActivityIndicator,
-    Alert,
-    Pressable,
-    StyleSheet,
-    Text,
-    TextInput,
-    View,
+  ActivityIndicator,
+  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -42,7 +42,9 @@ export default function CreateAccount() {
       <Pressable style={styles.backButton} onPress={() => router.back()}>
         <Ionicons name="arrow-back" size={24} color="#333" />
       </Pressable>
-      <Text style={styles.title}>Create an account</Text>
+      <Text style={[styles.title, { color: useThemeColor({}, "brandGreen") }]}>
+        Create an account
+      </Text>
 
       <TextInput
         style={styles.input}

@@ -1,3 +1,4 @@
+import { useThemeColor } from "@/src/shared/hooks/use-theme-color";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -45,7 +46,11 @@ export default function StrategyScreen() {
       </Pressable>
       <View style={styles.container}>
         <View>
-          <Text style={styles.title}>Choose a Budget Strategy</Text>
+          <Text
+            style={[styles.title, { color: useThemeColor({}, "brandGreen") }]}
+          >
+            Choose a Budget Strategy
+          </Text>
           <Text style={styles.subtitle}>
             Pick the method that best fits your lifestyle.
           </Text>
@@ -53,7 +58,10 @@ export default function StrategyScreen() {
           {strategies.map((item) => (
             <Pressable
               key={item.key}
-              style={[styles.card, strategy === item.key && styles.cardSelected]}
+              style={[
+                styles.card,
+                strategy === item.key && styles.cardSelected,
+              ]}
               onPress={() => setStrategy(item.key)}
             >
               <Text style={styles.cardTitle}>{item.title}</Text>

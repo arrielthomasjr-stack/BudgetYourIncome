@@ -1,5 +1,6 @@
-import { Ionicons } from "@expo/vector-icons";
 import { signInWithEmail } from "@/src/features/auth/auth";
+import { useThemeColor } from "@/src/shared/hooks/use-theme-color";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -8,8 +9,7 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  TextInput,
-  View,
+  TextInput
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -41,7 +41,9 @@ export default function LoginScreen() {
       <Pressable style={styles.backButton} onPress={() => router.back()}>
         <Ionicons name="arrow-back" size={24} color="#333" />
       </Pressable>
-      <Text style={styles.title}>Sign in</Text>
+      <Text style={[styles.title, { color: useThemeColor({}, "brandGreen") }]}>
+        Sign in
+      </Text>
 
       <TextInput
         style={styles.input}

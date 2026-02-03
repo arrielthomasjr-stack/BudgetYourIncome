@@ -1,14 +1,15 @@
+import { useThemeColor } from "@/src/shared/hooks/use-theme-color";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
-    KeyboardAvoidingView,
-    Platform,
-    Pressable,
-    StyleSheet,
-    Text,
-    TextInput,
-    View,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -46,7 +47,11 @@ export default function IncomeScreen() {
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <View>
-          <Text style={styles.title}>Monthly Income</Text>
+          <Text
+            style={[styles.title, { color: useThemeColor({}, "brandGreen") }]}
+          >
+            Monthly Income
+          </Text>
           <Text style={styles.subtitle}>
             Enter your average monthly income before taxes.
           </Text>
