@@ -3,19 +3,20 @@
 
 import { render, screen } from "@testing-library/react-native";
 import React from "react";
+import WelcomeScreen from "../(onboarding)/welcome";
 
-import Pressable from "@/app/(onboarding)/welcome"; // Adjust the import path as necessary
-
-describe("Button Component", () => {
-  it("renders correctly", () => {
-    // Check that the button is displayed with the correct text
-    const button = screen.getByText("create account");
-    expect(button).toBeTruthy();
-  });
-
-  it("renders without crashing", () => {
-    // This test ensures the component mounts without errors
-    const { toJSON } = render(<Pressable />);
-    expect(toJSON()).toBeTruthy();
+describe("WelcomeScreen", () => {
+  it("renders the title", () => {
+    // Check that the title is displayed on the screen
+    render(<WelcomeScreen />);
+    const title = screen.getByText("Budget\nYour\nIncome\n");
+    expect(title).toBeTruthy();
   });
 });
+
+//   it("renders without crashing", () => {
+//     // This test ensures the component mounts without errors
+//     const { toJSON } = render(<Pressable />);
+//     expect(toJSON()).toBeTruthy();
+//   });
+// });
