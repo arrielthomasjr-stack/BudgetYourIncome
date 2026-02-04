@@ -42,7 +42,7 @@ export default function LoginScreen() {
       colors={["#6B11D8", "#3A006E", "#050205"]}
       style={styles.container}
     >
-      <SafeAreaView style={styles.viewcontainer}>
+      <SafeAreaView style={styles.safeArea}>
         <Pressable style={styles.backButton} onPress={() => router.back()}>
           <Ionicons name="arrow-back" size={24} color="#333" />
         </Pressable>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: "transparent",
   },
-  viewcontainer: {
+  safeArea: {
     flex: 1,
     padding: 24,
   },
