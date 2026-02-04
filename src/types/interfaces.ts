@@ -86,3 +86,29 @@ export interface AppState {
   isLoading: boolean;
   theme: "light" | "dark";
 }
+export type BudgetStrategy = "50-30-20" | "zero-based" | "custom";
+
+export interface BudgetCategory {
+  id: string;
+  name: string;
+  percentage: number;
+  amount: number;
+  subcategories?: BudgetSubCategory[];
+}
+
+export interface Budget {
+  id: string;
+  userId: string;
+  monthYear: string; // e.g., "2026-01"
+  totalIncome: number;
+  categories: BudgetCategory[];
+  createdAt: string;
+  updatedAt: string;
+}
+export interface BudgetSubCategory {
+  id: string;
+  name: string;
+  percentage: number;
+  amount: number;
+  parentId: string;
+}
