@@ -1,8 +1,9 @@
 import { useBudgetStore } from "@/src/store/budget-store";
 import { generateBudget } from "@/src/utils/budget-math";
+import { CATEGORY_COLORS } from "@/src/utils/category-colors";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet, Text } from "react-native";
 import { PieChart } from "react-native-chart-kit";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -19,9 +20,10 @@ export default function InsightsScreen() {
   const piedata = categories.map((c) => ({
     name: c.name,
     population: c.amount,
-    color: "#2563eb",
-    legendFontColor: "#333",
-    legendFontSize: 14,
+    color: CATEGORY_COLORS[c.name] ?? "#999",
+    legendFontColor: "#fdf9f9",
+    legendFontSize: 20,
+    legendFontWeight: "600",
   }));
 
   return (
@@ -30,7 +32,7 @@ export default function InsightsScreen() {
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea}>
-        {/* <Text style={styles.title}>Your Financial Insights</Text> */}
+        <Text style={styles.title}>Your Financial Insights</Text>
 
         <PieChart
           data={piedata}
@@ -39,6 +41,7 @@ export default function InsightsScreen() {
           accessor="population"
           backgroundColor="transparent"
           paddingLeft="15"
+          chartConfig={{ color: () => "#000" }}
         />
       </SafeAreaView>
     </LinearGradient>
@@ -53,17 +56,18 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-  // // title: {
-  // //   position: "absolute",
-  // //   top: 50,
-  // //   left: 0,
-  // //   right: 0,
-  // //   fontSize: 24,
-  // //   fontWeight: "700",
-  // //   marginTop: 1,
-  // //   color: "#0bed3f",
-  // //   textAlign: "center",
-  // },
+  title: {
+    position: "absolute",
+    top: 10,
+    left: 0,
+    right: 0,
+    fontSize: 26,
+    fontWeight: "700",
+    marginTop: 1,
+    textAlign: "center",
+    color: "#26f805",
+    marginBottom: 8,
+  },
   subtitle: {
     fontSize: 16,
     color: "#6B7280",

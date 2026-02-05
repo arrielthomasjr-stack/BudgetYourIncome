@@ -31,13 +31,16 @@ export default function TabsLayout() {
         name="insights"
         options={{
           title: "Insights",
-          tabBarIcon: (props) => (
-            <Ionicons
-              name="stats-chart-outline"
-              size={props?.size ?? 24}
-              color={props?.color ?? "#000"}
-            />
-          ),
+          tabBarIcon: (props) => {
+            console.log("Tabs icon props:", props);
+            return (
+              <Ionicons
+                name="stats-chart-outline"
+                size={props?.size ?? 24}
+                color={props?.color ?? "#000"}
+              />
+            );
+          },
         }}
       />
     </Tabs>

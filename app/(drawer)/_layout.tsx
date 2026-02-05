@@ -14,12 +14,19 @@ export default function DrawerLayout() {
         name="(tabs)"
         options={{
           title: "Budget",
-          drawerIcon: ({ color, size }: { color: string; size: number }) => (
-            <Ionicons name="pie-chart-outline" size={size} color={color} />
-          ),
+          drawerIcon: (props) => {
+            console.log("Drawer icon props:", props);
+
+            return (
+              <Ionicons
+                name="settings-outline"
+                size={props?.size ?? 24}
+                color={props?.color ?? "#000"}
+              />
+            );
+          },
         }}
       />
-
       {/* Secondary Screens */}
       <Drawer.Screen
         name="profile"

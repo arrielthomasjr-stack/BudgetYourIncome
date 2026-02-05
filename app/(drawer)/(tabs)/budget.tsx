@@ -1,12 +1,12 @@
 import { useBudgetStore } from "@/src/store/budget-store";
 import { generateBudget } from "@/src/utils/budget-math";
 import { LinearGradient } from "expo-linear-gradient";
-import { useRouter } from "expo-router";
+// import { useRouter } from "expo-router";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function BudgetScreen() {
-  const router = useRouter();
+  // const router = useRouter();
 
   const income = useBudgetStore((s) => s.monthlyIncome);
 
