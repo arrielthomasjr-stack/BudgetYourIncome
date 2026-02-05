@@ -1,12 +1,14 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { Dimensions, StyleSheet, Text } from "react-native";
-// import { useRouter } from "expo-router";
 import { useBudgetStore } from "@/src/store/budget-store";
 import { generateBudget } from "@/src/utils/budget-math";
+import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
+import { Dimensions, StyleSheet } from "react-native";
 import { PieChart } from "react-native-chart-kit";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function InsightsScreen() {
+  // const router = useRouter();
+
   const income = useBudgetStore((s) => s.monthlyIncome);
   const strategy = useBudgetStore((s) => s.strategy);
 
@@ -14,7 +16,7 @@ export default function InsightsScreen() {
 
   const categories = generateBudget(income, strategy);
 
-  const data = categories.map((c) => ({
+  const piedata = categories.map((c) => ({
     name: c.name,
     population: c.amount,
     color: "#2563eb",
@@ -28,12 +30,10 @@ export default function InsightsScreen() {
       style={styles.container}
     >
       <SafeAreaView style={styles.safeArea}>
-        <Text style={styles.title}>Your Financial Insights</Text>
-        <Text style={{ textAlign: "center", marginVertical: 12 }}>
-          Budget Breakdown
-        </Text>
+        {/* <Text style={styles.title}>Your Financial Insights</Text> */}
+
         <PieChart
-          data={data}
+          data={piedata}
           width={Dimensions.get("window").width}
           height={220}
           accessor="population"
@@ -53,17 +53,17 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-  title: {
-    position: "absolute",
-    top: 50,
-    left: 0,
-    right: 0,
-    fontSize: 24,
-    fontWeight: "700",
-    color: "brandGreen",
-    marginTop: 1,
-    textAlign: "center",
-  },
+  // // title: {
+  // //   position: "absolute",
+  // //   top: 50,
+  // //   left: 0,
+  // //   right: 0,
+  // //   fontSize: 24,
+  // //   fontWeight: "700",
+  // //   marginTop: 1,
+  // //   color: "#0bed3f",
+  // //   textAlign: "center",
+  // },
   subtitle: {
     fontSize: 16,
     color: "#6B7280",

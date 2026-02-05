@@ -1,10 +1,11 @@
 import { useThemeColor } from "@/src/shared/hooks/use-theme-color";
 import { LinearGradient } from "expo-linear-gradient";
-// import { useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { StyleSheet, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SettingsScreen() {
+  const router = useRouter();
   return (
     <LinearGradient
       colors={["#6B11D8", "#3A006E", "#050205"]}

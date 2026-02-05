@@ -1,12 +1,18 @@
 import { useThemeColor } from "@/src/shared/hooks/use-theme-color";
+import { useBudgetStore } from "@/src/store/budget-store";
+import { BudgetStrategy } from "@/src/types/interfaces";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-import { BudgetStrategy, useBudgetStore } from "@/src/store/budget-store";
 
 export default function StrategyScreen() {
   const router = useRouter();
@@ -61,7 +67,7 @@ export default function StrategyScreen() {
             </Text>
 
             {strategies.map((item) => (
-              <Pressable
+              <TouchableOpacity
                 key={item.key}
                 style={[
                   styles.card,
@@ -71,7 +77,7 @@ export default function StrategyScreen() {
               >
                 <Text style={styles.cardTitle}>{item.title}</Text>
                 <Text style={styles.cardDescription}>{item.description}</Text>
-              </Pressable>
+              </TouchableOpacity>
             ))}
           </View>
 

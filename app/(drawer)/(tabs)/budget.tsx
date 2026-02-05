@@ -1,11 +1,13 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { FlatList, StyleSheet, Text, View } from "react-native";
-
 import { useBudgetStore } from "@/src/store/budget-store";
 import { generateBudget } from "@/src/utils/budget-math";
+import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function BudgetScreen() {
+  const router = useRouter();
+
   const income = useBudgetStore((s) => s.monthlyIncome);
 
   const strategy = useBudgetStore((s) => s.strategy);
@@ -33,7 +35,7 @@ export default function BudgetScreen() {
               </Text>
 
               {item.subcategories?.map((sub) => (
-                <Text key={sub.id}>
+                <Text key={sub.id} style={styles.subcategory}>
                   • {sub.name}: ${sub.amount}
                 </Text>
               ))}
@@ -55,22 +57,30 @@ const styles = StyleSheet.create({
   },
   title: {
     position: "absolute",
-    top: 50,
+    top: 10,
     left: 0,
     right: 0,
-    color: "brandGreen",
+    color: "#0bed3f",
     fontSize: 24,
     fontWeight: "700",
     marginTop: 1,
     textAlign: "center",
   },
   subtitle: {
+    fontSize: 20,
+    color: "#1410e9",
+    marginTop: 0,
+    marginVertical: 4,
+    fontWeight: "600",
+  },
+  subcategory: {
     fontSize: 16,
-    color: "#6B7280",
-    marginTop: 8,
+    color: "#01040b",
+    marginLeft: 12,
+    marginTop: 4,
   },
   card: {
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    backgroundColor: "#fff",
     borderRadius: 12,
     padding: 16,
     margin: 12,

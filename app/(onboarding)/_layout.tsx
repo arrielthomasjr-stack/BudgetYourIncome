@@ -1,13 +1,14 @@
-import { useBudgetStore } from "@/src/store/budget-store";
-import { Redirect, Stack } from "expo-router";
+// import { useBudgetStore } from "@/src/store/budget-store";
+import { Stack } from "expo-router";
+// import { Redirect } from "expo-router";
 import React from "react";
 
 export default function OnboardingLayout() {
-  const strategy = useBudgetStore((s) => s.strategy);
+  // const strategy = useBudgetStore((s) => s.strategy);
 
-  if (strategy) {
-    return <Redirect href="/(drawer)/(tabs)/budget" />;
-  }
+  // if (strategy) {
+  //   return <Redirect href="/(drawer)/(tabs)/budget" />;
+  // }
 
   return (
     <Stack screenOptions={{ headerShown: false }} initialRouteName="welcome">
