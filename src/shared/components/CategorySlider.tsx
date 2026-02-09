@@ -8,8 +8,6 @@ interface Props {
 }
 
 export function CategorySlider({ label, value, onChange }: Props) {
-  console.log("Slider props:", { label, value, onChange });
-
   return (
     <View style={styles.container}>
       <Text>

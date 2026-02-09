@@ -32,7 +32,6 @@ export default function TabsLayout() {
         options={{
           title: "Insights",
           tabBarIcon: (props) => {
-            console.log("Tabs icon props:", props);
             return (
               <Ionicons
                 name="stats-chart-outline"
